@@ -1,0 +1,15 @@
+package com.hotel_booking.repository;
+
+import com.hotel_booking.entity.PropertyUser;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface PropertyUserRepository extends JpaRepository<PropertyUser, Long> {
+    Optional<PropertyUser> findByUsername(String username);
+    boolean existsByUsername(String adminUsername);
+
+    boolean existsByEmail(String email);
+
+    boolean existsByMobile(String mobile);
+}
