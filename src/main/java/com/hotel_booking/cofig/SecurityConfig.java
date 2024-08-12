@@ -21,6 +21,7 @@ public class SecurityConfig {
         http.addFilterBefore(jwtRequestFilter, AuthorizationFilter.class);
         http.authorizeHttpRequests().
                 requestMatchers("/api/v1/favourite/*","/api/v1/review/*").hasRole("USER")
+                .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                 .anyRequest().permitAll();
 
         return http.build();
